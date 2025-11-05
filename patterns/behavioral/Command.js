@@ -38,12 +38,20 @@ class AddToCartCommand extends Command {
     execute() {
         // TODO: Implement the execute method.
         // It should call the `addProduct` method of the `cartService`.
+        this.cartService.addProduct(this.product);
+        console.log(`Added ${this.product.name} to the cart.`);
+        return true;
+
     }
 
     undo() {
         // TODO: Implement the undo method.
         // It should call the `removeProduct` method of the `cartService`,
         // using the product's ID.
+        this.cartService.removeProduct(this.product.id);
+        console.log(`Removed ${this.product.name} from the cart.`);
+        return true;
+        
     }
 }
 
